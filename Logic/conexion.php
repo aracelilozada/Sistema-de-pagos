@@ -3,7 +3,7 @@
 $server = "localhost";
 $user = "root";
 $pass = "";
-$db = "sistemas-de-pagos";
+$db = "sistema-de-pago";
 //Creamos la conexion
 try {
     $conexion = new PDO("mysql:host=$server;dbname=$db;charset=utf8", $user, $pass);
