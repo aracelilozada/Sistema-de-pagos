@@ -1,36 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login web</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Login</title>
     <link rel="stylesheet" href="<?= BASE_URL ?>App/assets/css/login.css">
 </head>
+
 <body>
-    <div class="wrapper">
-        <form action="" class="form">
-            <h1 class="title">Inicio</h1>
-            <div class="inp">
-                <input type="text" name="" id="" class="input" placeholder="usuario">
-                <i class="usuario"></i>
+    <div class="container">
+        <h1 class="title">Inicio de Sesión</h1>
+        <form id="form_login" class="form">
+            <div class="form-group">
+                <label for="txtUser" class="label">Usuario</label>
+                <input type="text" name="txtUser" id="txtUser" class="input">
             </div>
-            <div class="inp">
-                <input type="password" name="" id="" class="input" placeholder="contraseña">
-                <i class="fa-solid fa-lock"></i>
+            <div class="form-group">
+                <label for="txtPassword" class="label">Contraseña</label>
+                <input type="password" name="txtPassword" id="txtPassword" class="input">
             </div>
-            <button class="submit">Iniciar sesión</button>
-            <p class="footer"><a href="#" class="link">Por favor, Registrate</a></p>   
+            <div class="form-group">
+                <button type="submit" class="button">Iniciar Sesión</button>
+            </div>
         </form>
-        <div></div>
-        <div class="banner">
-            <h1 class="wel_text">Bienvenid@</h1><br>
-            <p class="para"></p>
-        </div>
-        <script>
+    </div>
+    <script>
         let base_url = "<?= BASE_URL ?>";
     </script>
     <script src="<?= BASE_URL ?>App/assets/js/Login/functions_login.js"></script>
-
 </body>
+
+
 </html>

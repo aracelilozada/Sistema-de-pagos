@@ -14,15 +14,15 @@ switch ($view) {
         $view = $view . "-view.php";
         require_once "./views/Home/" . $view;
         break;
-    case "usuario":
+    case "carrera":
         session_start(["name" => "Sistemapago"]);
         $view = $view . "-view.php";
-        require_once "./views/usuario/" . $view;
+        require_once "./views/carrera/" . $view;
         break;
-        case "persona":
+        case "Estudiante":
             session_start(["name" => "Sistemapago"]);
             $view = $view . "-view.php";
-            require_once "./views/persona/" . $view;
+            require_once "./views/Estudiante/" . $view;
             break;
 
 default:
