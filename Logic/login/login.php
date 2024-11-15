@@ -19,8 +19,8 @@ if ($_POST) {
         echo json_encode($data);
         die();
     }
-    $sql = "SELECT*FROM usuarios AS u 
-    WHERE u.u_user=? AND u.u_password=?;";
+    $sql = "SELECT*FROM usuario AS u 
+    WHERE u.usuario=? AND u.contrasenia=?;";
     $arrData = array($user, $password);
     $request = select($conexion, $arrData, $sql);
     if (!$request) {

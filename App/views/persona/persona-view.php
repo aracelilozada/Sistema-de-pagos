@@ -31,8 +31,8 @@
 
         <!-- Área de contenido -->
         <section class="content">
-            <h2>Gestion de usuario</h2>
-            <p>Gestion y administracion de usuario </p>
+            <h2>Gestion de Persona</h2>
+            <p>Gestion y administracion de Persona</p>
         </section>
         <section class="content-body">
             <div class="form-container">

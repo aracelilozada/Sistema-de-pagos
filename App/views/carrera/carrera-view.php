@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+
+
+</html><!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -38,8 +40,8 @@
             <div class="form-container">
                 <form id="formSend">
                     <div class="form-group">
-                        <label for="txtNombres">Nombre</label>
-                        <input type="text" name="txtNombres" id="txtNombres" placeholder="Ingrese el nombre de la carrera" required>
+                        <label for="txtNombre">Nombre</label>
+                        <input type="text" name="txtNombre" id="txtNombre" placeholder="Ingrese el nombre de la carrera" required>
                     </div>
                     <div class="form-group">
                         <label for="txtDescripcion">Descripcion</label>
@@ -75,6 +77,7 @@
     <script>
         let base_url = "<?= BASE_URL ?>";
     </script>
+    <script src="<?= BASE_URL ?>App/assets/js/main.js"></script>
     <script src="<?= BASE_URL ?>App/assets/js/carrera/functions_carrera.js"></script>
 </body>
 

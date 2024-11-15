@@ -25,7 +25,7 @@
     <div class="main-content">
         <!-- Menú superior -->
         <header class="header">
-            <h1 class="system-name">Sistema de Gestión de Pagos</h1>
+            <h1 class="system-name">Sistema de Gestión de usuario</h1>
             <button class="logout-btn" onclick="logout()">Cerrar Sesión</button>
         </header>
 
@@ -38,12 +38,16 @@
             <div class="form-container">
                 <form action="">
                     <div class="form-group">
-                        <label for="txtNombre">Nombre</label>
-                        <input type="text" name="txtNombre" id="txtNombre" placeholder="Ingrese el nombre de la categoria" required>
+                        <label for="txtNombre">idusuario</label>
+                        <input type="text" name="txtidusuario" id="txtidusuario" placeholder="Ingrese el codigo de usuario" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtNombre">usuario</label>
+                        <input type="text" name="txtusuario" id="txtusuario" placeholder="Ingrese el nombre del usuario" required>
                     </div>
                     <div class="form-group">
                         <label for="txtcontrasenia">contrasenia</label>
-                        <textarea name="txtcontrasenia" id="txtcontrasenia"></textarea>
+                        <input type="text" name="txtcontrasenia" id="txtcontrasenia" placeholder="Ingrese la contrasenia" required>
                     </div>
                     <div class="form-actions">
                         <button type="reset" class="btn btn-secondary">Limpiar</button>
@@ -56,7 +60,8 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Nombre</th>
+                            <th>idusuario</th>
+                            <th>usuario</th>
                             <th>contrasenia</th>
                            
                         </tr>

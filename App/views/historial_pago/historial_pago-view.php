@@ -31,35 +31,35 @@
 
         <!-- Área de contenido -->
         <section class="content">
-            <h2>GESTION DE PENSION</h2>
-            <p>Gestion y administracion de PENSION</p>
+            <h2>GESTION DEL HISTORIAL PAGOS</h2>
+            <p>Gestion y administracion de Historial de pagos</p>
         </section>
         <section class="content-body">
             <div class="form-container">
                 <form action="">
                 <div class="form-group">
+                        <label for="txtidhistorial_pago">histoial de pago</label>
+                        <input type="text" name="txtidhistorial_pago" id="txtidhistorial_pago" placeholder="Ingrese su pago" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtidestudiante">N° Del Estuante</label>
+                        <input type="text" name="txtidestudiante" id="txtidestudiante" placeholder="Ingrese su codigo de estuadiante" required>
+                    </div>
+                    <div class="form-group">
                         <label for="txtidpension">Pension</label>
-                        <input type="text" name="txtidpension" id="txtidpension" placeholder="Ingrese pension" required>
+                        <input type="number"name="txtidpension" id="txtidpension" placeholder="Ingrese la Pension" required>
                     </div>
                     <div class="form-group">
-                        <label for="txtNombre">Nombre</label>
-                        <input type="text" name="txtNombre" id="txtNombre" placeholder="Ingrese el nombre de la Persona" required>
+                        <label for="txtFecha_pago">Fecha de pago</label>
+                        <input type="Date" name="txtFecha_pago" id="txtFecha_pago" placeholder="Ingrese la Fecha de pago" required>
                     </div>
                     <div class="form-group">
-                        <label for="txtprecio">Precio</label>
-                        <input type="text" name="txtprecio" id="txtprecio" placeholder="Ingrese el precio" required>
+                        <label for="txtpago">S/.Pago</label>
+                        <input type="number" name="txtpago" id="txtpago" placeholder="Ingrese el monto de pago" required>
                     </div>
                     <div class="form-group">
-                        <label for="txtporcentaje_descuento">Porcentahe de Descuento</label>
-                        <input type="text" name="txtporcentaje_descuento" id="txtporcentaje_descuento" placeholder="Ingrese el porcentaje de Descuento" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="txtporcentaje_incremento">Porcentahe de Incremento</label>
-                        <input type="text" name="txtporcentaje_incremento" id="txtporcentaje_incremento" placeholder="Ingrese el porcentaje de incremento" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="txtidmodulo">Modulo</label>
-                        <input type="text" name="txtidmodulo" id="txtidmodulo" placeholder="Ingrese el modulo de la Persona" required>
+                        <label for="txtestado_pago">Estado de Pago</label>
+                        <input type="text" name="txtestado_pago" id="txtestado_pago" placeholder="Ingrese Tipo de pago" required>
                     </div>
                     <div class="form-actions">
                         <button type="reset" class="btn btn-secondary">Limpiar</button>
@@ -72,12 +72,12 @@
                     <thead>
                         <tr>
                             <th>#</th>
+                            <th>histoial de pago</th>
+                            <th>N° Del Estuante</th>
                             <th>Pension</th>
-                            <th>Nombre</th>
-                            <th>Precio</th>
-                            <th>PSJ.Descuento</th>
-                            <th>PSJ.Incremento</th>
-                            <th>Modulo</th>
+                            <th>Fecha de pago</th>
+                            <th>S/.Pago</th>
+                            <th>Estado de Pago</th>
                         </tr>
                     </thead>
                     <tbody id="table-body">

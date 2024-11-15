@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function loadTable() {
 
     let table = document.getElementById("table-body");
-    let url = base_url + "Logic/usuario/leer.php";
+    let url = base_url + "Logic/persona/read.php";
     fetch(url)
         .then((Response) => {
             if (!Response.ok) {
@@ -22,10 +22,14 @@ function loadTable() {
                 arrData.forEach((element) => {
                     row += ``;
                     row += `<tr>
-<td>${element.idusuario}</td>
-<td>${element.usuario}</td>
-<td>${element.contrasenia}</td>
-
+<td>${element.idperona}</td>
+<td>${element.nombres}</td>
+<td>${element.apellidos}</td>
+<td>${element.DNI}</td>
+<td>${element.telefono}</td>
+<td>${element.correo}</td>
+<td>${element.Direccion}</td>
+<td>${element.Fnacimiento}</td>
 <td>Botones</td>
 </tr>`;
                 });
@@ -51,7 +55,7 @@ function SendData() {
             cache: "no-cache",
             body: data,
         };
-        const url = base_url + "Logic/usuario/create.php";
+        const url = base_url + "Logic/persona/create.php";
         fetch(url, config)
             .then((result) => {
                 if (!result.ok) {

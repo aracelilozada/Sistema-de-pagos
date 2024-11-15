@@ -38,3 +38,4 @@ function select_all($conexion, array $arrData = array(), string $sql)
         echo "Error: " . $e->getMessage();
     }
 }
+

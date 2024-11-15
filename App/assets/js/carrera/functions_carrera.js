@@ -30,7 +30,7 @@ function loadTable() {
 
         })
         .catch((error) => {
-            console.log(error);
+            console.error(error);
         });
 }
 /*Este foncion se encarga de enviar la data y registrar o actualizar */
@@ -69,4 +69,3 @@ function sendData() {
             });
     });
 }
-
