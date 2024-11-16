@@ -100,6 +100,7 @@
     <script>
         let base_url = "<?= BASE_URL ?>";
     </script>
+     <script src="<?= BASE_URL ?>App/assets/js/main.js"></script>
     <script src="<?= BASE_URL ?>App/assets/js/persona/functions_persona.js"></script>
 </body>
 

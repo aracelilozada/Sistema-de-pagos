@@ -2,8 +2,8 @@
 require_once "../mysql.php";
 require_once "../conexion.php";
 //Variables de la categoria
-$name = $_POST["txtNombre"];
-$description = $_POST["txtDescripcion"];
+$name = $_POST["txtnombre"];
+$description = $_POST["txtdescripcion"];
 $estado = $_POST["txtestado"];
 //validar que los campos no esten vacios
 if ($name == "" || $description == "") {
@@ -20,7 +20,7 @@ $arrData = array(
     $estado,
 );
 //preparamos la consulta
-$sql = "INSERT INTO carrera (idcarrera,nombres,descripcion,estado) VALUES(?,?,?,?);";
+$sql = "INSERT INTO carrera (nombres,descripcion,estado) VALUES(?,?,?);";
 $request = register($conexion, $arrData, $sql);
 if ($request) {
     echo json_encode([

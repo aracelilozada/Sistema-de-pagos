@@ -64,9 +64,11 @@
                     <thead>
                         <tr>
                             <th>#</th>
+                            <th>idestudiante</th>
                             <th>idpersona</th>
                             <th>idusuario</th>
                             <th>Estado</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody id="table-body">
@@ -79,6 +81,7 @@
     <script>
         let base_url = "<?= BASE_URL ?>";
     </script>
+      <script src="<?= BASE_URL ?>App/assets/js/main.js"></script>
     <script src="<?= BASE_URL ?>App/assets/js/Estudiante/functions_Estudiante.js"></script>
 </body>
 

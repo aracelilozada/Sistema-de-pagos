@@ -40,16 +40,16 @@
             <div class="form-container">
                 <form id="formSend">
                     <div class="form-group">
-                        <label for="txtNombre">Nombre</label>
-                        <input type="text" name="txtNombre" id="txtNombre" placeholder="Ingrese el nombre de la carrera" required>
+                        <label for="txtnombre">Nombre</label>
+                        <input type="text" name="txtnombre" id="txtnombre" placeholder="Ingrese el nombre de la carrera" required>
                     </div>
                     <div class="form-group">
-                        <label for="txtDescripcion">Descripcion</label>
-                        <input type="text" name="txtDescripcion" id="txtDescripcion" placeholder="Ingrese una Descripcion" required>
+                        <label for="txtdescripcion">Descripcion</label>
+                        <input type="text" name="txtdescripcion" id="txtdescripcion" placeholder="Ingrese una Descripcion" required>
                     </div>
                     <div class="form-group">
-                        <label for="txtEstado">Estado</label>
-                        <input type="text" name="txtEstado" id="txtEstado" placeholder="Ingrese el estado">
+                        <label for="txtestado">Estado</label>
+                        <input type="text" name="txtestado" id="txtestado" placeholder="Ingrese el estado">
                     </div>
                     <div class="form-actions">
                         <button type="reset" class="btn btn-secondary">Limpiar</button>
@@ -65,6 +65,7 @@
                             <th>Nombres</th>
                             <th>Descripcion</th>
                             <th>Estado</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody id="table-body">
