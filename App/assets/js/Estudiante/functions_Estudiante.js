@@ -18,12 +18,14 @@ function loadTable() {
                 let row = "";
                 arrData.forEach((element) => {
                     row += `<tr>
-             <td>${element.idEstudiante}</td>
-             <td>${element.idpersona}</td>
-             <td>${element.idusuario}</td>
-             <td>${element.idestado}</td>
+             <td>*</td>
+             <td>${element.idestudiante}</td>
+             <td>${element.nombres}</td>
+             <td>${element.apellidos}</td>  
+             <td>${element.estado}</td>
+
              <td>Botones</td>
-             </td>`;
+             </tr>`;
                 });
                 table.innerHTML = row;
             }

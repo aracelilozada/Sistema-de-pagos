@@ -2,31 +2,32 @@
 require_once "../mysql.php";
 require_once "../conexion.php";
 //Variables de la categoria
-$estudiante = $_POST["txtidestudiante"];
-$persona = $_POST["txtidpersona"];
-$usuario = $_POST["txtidusuario"];
-$estado = $_POST["txtestado"];
+$idpersona = $_POST["sltPersona"];
+session_start(["name" => "Sistemapago"]);
+
 //validar que los campos no esten vacios
-if ($name == "" || $description == "") {
+if ($idpersona == "") {
     echo json_encode([
         "status" => false,
         "msg" => "Los campos no pueden estar vacio"
     ]);
     die();
 }
+$idusuario = $_SESSION["sesion_login"]["info"]["idusuario"];
+$estado = "activo";
 //preparamos el array con los datos
 $arrData = array(
-    $name,
-    $description,
-    $estado,
+    $idpersona,
+    $idusuario,
+    $estado
 );
 //preparamos la consulta
-$sql = "INSERT INTO Estudiante (estudiante,persona,usuario,estado) VALUES(?,?,?,?);";
+$sql = "INSERT INTO estudiante (idpersona,idusuario,estado) VALUES(?,?,?);";
 $request = register($conexion, $arrData, $sql);
 if ($request) {
     echo json_encode([
         "status" => true,
-        "msg" => "Registro de carrera exitoso"
+        "msg" => "Registro de estudiante exitoso"
     ]);
     die();
 }

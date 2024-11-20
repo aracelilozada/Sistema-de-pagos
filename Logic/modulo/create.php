@@ -2,13 +2,13 @@
 require_once "../mysql.php";
 require_once "../conexion.php";
 //Variables de la categoria
-$codigomodulo = $_POST["txtcodigomodulo"];
+$modulo = $_POST["txtmodulo"];
 $nombre = $_POST["txtnombre"];
-$descripcion = $_POST["txtDescripcion"];
+$descripcion = $_POST["txtdescripcion"];
 $estado = $_POST["txtestado"];
-$codigocarrera = $_POST["txtcodigocarrera"];
+$carrera = $_POST["txtcarrera"];
 //validar que los campos no esten vacios
-if ($name == "" || $description == "") {
+if ($modulo == "" || $nombre == "" || $descripcion =="" ||  $estado ==""|| $carrera =="" ||) {
     echo json_encode([
         "status" => false,
         "msg" => "los campos no pueden estar vacios"
@@ -37,3 +37,4 @@ if ($request) {
         "msg" => "Error al registrar el modulo"
     ]);
 }
+

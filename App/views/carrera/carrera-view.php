@@ -1,6 +1,6 @@
 
 
-</html><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -82,4 +82,4 @@
     <script src="<?= BASE_URL ?>App/assets/js/carrera/functions_carrera.js"></script>
 </body>
 
-</html>
+</html

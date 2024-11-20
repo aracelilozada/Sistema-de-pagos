@@ -9,17 +9,9 @@
 </head>
 
 <body>
-    <!-- Menú lateral -->
-    <div class="sidebar" id="sidebar">
-        <h2 class="logo">Mi Sistema</h2>
-        <ul class="menu">
-            <li><a href="#dashboard" class="menu-link">Inicio</a></li>
-            <li><a href="<?=BASE_URL ?>App?v=categories" class="menu-link">Gestion de Categorias</a></li>
-            <li><a href="#reportes" class="menu-link">Reportes</a></li>
-            <li><a href="#configuracion" class="menu-link">Configuración</a></li>
-            <li><a href="#soporte" class="menu-link">Soporte</a></li>
-        </ul>
-    </div>
+  <?php 
+  include "./views/menu.php";
+  ?>
 
     <!-- Contenedor principal -->
     <div class="main-content">

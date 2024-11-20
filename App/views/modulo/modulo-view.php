@@ -85,6 +85,7 @@
     <script>
         let base_url = "<?= BASE_URL ?>";
     </script>
+     <script src="<?= BASE_URL ?>App/assets/js/main.js"></script>
     <script src="<?= BASE_URL ?>App/assets/js/Modulo/functions_Modulo.js"></script>
 </body>
 

@@ -10,16 +10,10 @@
 
 <body>
     <!-- Menú lateral -->
-    <div class="sidebar" id="sidebar">
-        <h2 class="logo">Mi Sistema</h2>
-        <ul class="menu">
-            <li><a href="#dashboard" class="menu-link">Dashboard</a></li>
-            <li><a href="#usuarios" class="menu-link">Usuarios</a></li>
-            <li><a href="#reportes" class="menu-link">Reportes</a></li>
-            <li><a href="#configuracion" class="menu-link">Configuración</a></li>
-            <li><a href="#soporte" class="menu-link">Soporte</a></li>
-        </ul>
-    </div>
+    <?php
+    include "./views/menu.php";
+    ?>
+
 
     <!-- Contenedor principal -->
     <div class="main-content">
@@ -36,38 +30,35 @@
         </section>
         <section class="content-body">
             <div class="form-container">
-                <form action="">
-                <div class="form-group">
-                        <label for="txtidPersona">idPersona</label>
-                        <input type="text" name="txtidPersona" id="txtidPersona" placeholder="Ingrese el idPersona" required>
+                <form id="formSend">
+
+                    <div class="form-group">
+                        <label for="txtnombres">Nombre</label>
+                        <input type="text" name="txtnombres" id="txtnombres" placeholder="Ingrese el nombre de la Persona" required>
                     </div>
                     <div class="form-group">
-                        <label for="txtNombre">Nombre</label>
-                        <input type="text" name="txtNombre" id="txtNombre" placeholder="Ingrese el nombre de la Persona" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="txtApellidos">Apellidos</label>
-                        <input type="text" name="txtApellidos" id="txtApellidos" placeholder="Ingrese los Apellidos de la Persona" required>
+                        <label for="txtapellidos">Apellidos</label>
+                        <input type="text" name=txtapellidos" id="txtapellidos" placeholder="Ingrese los Apellidos de la Persona" required>
                     </div>
                     <div class="form-group">
                         <label for="txtDNI">DNI</label>
                         <input type="text" name="txtDNI" id="txtDNI" placeholder="Ingrese DNI de la Persona" required>
                     </div>
                     <div class="form-group">
-                        <label for="txtTelefono">Telefono</label>
-                        <input type="text" name="txtTelefono" id="txtTelefono" placeholder="Ingrese el Telefono de la Persona" required>
+                        <label for="txttelefono">Telefono</label>
+                        <input type="text" name="txttelefono" id="txttelefono" placeholder="Ingrese el Telefono de la Persona" required>
                     </div>
                     <div class="form-group">
-                        <label for="txtCorreo">Correo</label>
-                        <input type="text" name="txtCorreo" id="txtCorreo" placeholder="Ingrese el Correo de la Persona" required>
+                        <label for="txtcorreo">Correo</label>
+                        <input type="text" name="txtcorreo" id="txtcorreo" placeholder="Ingrese el Correo de la Persona" required>
                     </div>
                     <div class="form-group">
-                        <label for="txtDireccion">Direccion</label>
-                        <input type="text" name="txtDireccion" id="txtDireccion" placeholder="Ingrese la Direccion de la Persona" required>
+                        <label for="txtdireccion">Direccion</label>
+                        <input type="text" name="txtdireccion" id="txtdireccion" placeholder="Ingrese la Direccion de la Persona" required>
                     </div>
                     <div class="form-group">
-                        <label for="txtFNacimiento">FNacimiento</label>
-                        <input type="text" name="txtFNacimiento" id="txtFNacimiento" placeholder="Ingrese FNacimiento de la Persona" required>
+                        <label for="txtfechadenacimiento">Fecha de nacimiento</label>
+                        <input type="date" name="txtfechadenacimiento" id="txtfechadenacimiento" placeholder="Ingrese FNacimiento de la Persona" required>
                     </div>
                     <div class="form-actions">
                         <button type="reset" class="btn btn-secondary">Limpiar</button>
@@ -91,7 +82,7 @@
                         </tr>
                     </thead>
                     <tbody id="table-body">
-                        
+
                     </tbody>
                 </table>
             </div>
@@ -100,8 +91,8 @@
     <script>
         let base_url = "<?= BASE_URL ?>";
     </script>
-     <script src="<?= BASE_URL ?>App/assets/js/main.js"></script>
-    <script src="<?= BASE_URL ?>App/assets/js/persona/functions_persona.js"></script>
+    <script src="<?= BASE_URL ?>App/assets/js/main.js"></script>
+    <script src="<?= BASE_URL ?>App/assets/js/persona/functios_persona.js"></script>
 </body>
 
 </html>

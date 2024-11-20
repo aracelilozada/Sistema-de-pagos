@@ -2,29 +2,25 @@
 require_once "../mysql.php";
 require_once "../conexion.php";
 //Variables de la categoria
-$idpersona = $_POST["txtidpersona"];
-$name = $_POST["txtNombres"];
-$apellidos = $_POST["txtapellidos"];
-$DNI = $_POST["txtDNI"];
-$telefono = $_POST["txttelefono"];
-$correo = $_POST["txtcorreo"];
-$direccion = $_POST["txtdireccion"];
-$Fnacimiento= $_POST["txtFnacimiento"];
+$idpersona = $_POST["sltPersona"];
+session_start(["name" => "Sistemapago"]);
+
 //validar que los campos no esten vacios
-if ($name == "" || $description == "") {
+if ($idpersona == "") {
     echo json_encode([
         "status" => false,
-        "msg" => "los campos no pueden estar vacios"
+        "msg" => "Los campos no pueden estar vacio"
     ]);
     die();
 }
+$idusuario = $_SESSION["sesion_login"]["info"]["idusuario"];
+$estado = "activo";
 //preparamos el array con los datos
 $arrData = array(
-    $name,
-    $description
+    $idpersona,
 );
 //preparamos la consulta
-$sql = "INSERT INTO persona (codigopersona,nombres,apellidos,DNI,telefono,correo,direccion,Fnacimiento) VALUES(?,?,?,?,?,?,?,?);";
+$sql = "INSERT INTO persona (idpersona,nombres,apellidos,DNI,telefono,correo,direccion,fecha de nacimiento) VALUES(?,?,?,?,?,?,?,?);";
 $request = register($conexion, $arrData, $sql);
 if ($request) {
     echo json_encode([

@@ -1,6 +1,6 @@
 <?php
 if ($_POST) {
-    session_start(["name" => "Sistemadepagos"]);
+    session_start(["name" => "Sistemapago"]);
     //requerimos los archivos
     require_once "../conexion.php";
     require_once "../mysql.php";

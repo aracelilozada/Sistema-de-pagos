@@ -20,18 +20,18 @@ function loadTable() {
                 const arrData = data.data
                 let row = "";
                 arrData.forEach((element) => {
-                    row += ``;
                     row += `<tr>
-<td>${element.idperona}</td>
-<td>${element.nombres}</td>
-<td>${element.apellidos}</td>
-<td>${element.DNI}</td>
-<td>${element.telefono}</td>
-<td>${element.correo}</td>
-<td>${element.Direccion}</td>
-<td>${element.Fnacimiento}</td>
-<td>Botones</td>
-</tr>`;
+    <td>*</td>                
+    <td>${element.idperona}</td>
+    <td>${element.nombres}</td>
+    <td>${element.apellidos}</td>
+    <td>${element.DNI}</td>
+    <td>${element.telefono}</td>
+    <td>${element.correo_electronico}</td>
+    <td>${element.direccion}</td>
+    <td>${element.fecha_de_nacimiento}</td>
+    <td>Botones</td>
+    </tr>`;
                 });
                 table.innerHTML = row;
             }

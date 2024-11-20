@@ -9,17 +9,9 @@
 </head>
 
 <body>
-    <!-- Menú lateral -->
-    <div class="sidebar" id="sidebar">
-        <h2 class="logo">Mi Sistema</h2>
-        <ul class="menu">
-            <li><a href="#dashboard" class="menu-link">Dashboard</a></li>
-            <li><a href="#usuarios" class="menu-link">Usuarios</a></li>
-            <li><a href="#reportes" class="menu-link">Reportes</a></li>
-            <li><a href="#configuracion" class="menu-link">Configuración</a></li>
-            <li><a href="#soporte" class="menu-link">Soporte</a></li>
-        </ul>
-    </div>
+    <?php
+    include "./views/menu.php";
+    ?>
 
     <!-- Contenedor principal -->
     <div class="main-content">
@@ -38,21 +30,23 @@
             <div class="form-container">
                 <form id="formSend">
                     <div class="form-group">
-                        <label for="txtidestudiante">Estudiante</label>
-                        <input type="text" name="txtidestudiante" id="txtidestudiante" placeholder="Ingrese el codigo del Estudiante" required>
+                        <label for="sltPersona">Personas</label>
+                        <select name="sltPersona" required id="sltPersona">
+                            <option value="" selected disabled>selecciona un elemento</option>
+                            <?php
+                            require_once "../Logic/conexion.php";
+                            require_once "../Logic/mysql.php";
+                            $sql = "SELECT*FROM persona ;";
+                            $resultado = select_all($conexion, [], $sql);
+                            foreach ($resultado as $key => $value) {
+                            ?>
+                                <option value="<?= $value["idpersona"] ?>"><?= $value["nombres"] . " " . $value["apellidos"] ?></option>
+                            <?php
+                            }
+                            ?>
+                        </select>
                     </div>
-                    <div class="form-group">
-                        <label for="txtidpersona">Persona</label>
-                        <input type="text" name="txtidpersona" id="txtidpersona" placeholder="Ingrese el codigo Persona" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="txtidusuario">usuario</label>
-                        <input type="text" name="txtidusuario" id="txtidusuario" placeholder="Ingrese el codigo de usuario">
-                    </div>
-                    <div class="form-group">
-                        <label for="txtestado">estado</label>
-                        <input type="text" name="txtestado" id="txtestado" placeholder="Ingrese el estado del estudiante">
-                    </div>
+
                     <div class="form-actions">
                         <button type="reset" class="btn btn-secondary">Limpiar</button>
                         <button type="submit" class="btn btn-primary">Registrar</button>
@@ -65,8 +59,8 @@
                         <tr>
                             <th>#</th>
                             <th>idestudiante</th>
-                            <th>idpersona</th>
-                            <th>idusuario</th>
+                            <th>Nombres</th>
+                            <th>apellidos</th>
                             <th>Estado</th>
                             <th>Acciones</th>
                         </tr>
@@ -81,8 +75,8 @@
     <script>
         let base_url = "<?= BASE_URL ?>";
     </script>
-      <script src="<?= BASE_URL ?>App/assets/js/main.js"></script>
-    <script src="<?= BASE_URL ?>App/assets/js/Estudiante/functions_Estudiante.js"></script>
+    <script src="<?= BASE_URL ?>App/assets/js/main.js"></script>
+    <script src="<?= BASE_URL ?>App/assets/js/estudiante/functions_estudiante.js"></script>
 </body>
 
 </html>
