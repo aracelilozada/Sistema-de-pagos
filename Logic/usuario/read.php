@@ -1,7 +1,7 @@
 <?php
 require_once "../conexion.php";
 require_once "../mysql.php";
-$sql = "SELECT u.usuario,u.contrasenia";
+$sql = "SELECT u.idusuario,u.usuario,u.contrasenia";
 $request = select_all($conexion, [], $sql);
 $contador=1;
 foreach($request as $key => $value) { 

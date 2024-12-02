@@ -23,7 +23,7 @@ function loadTable() {
                     row += ``;
                     row += `<tr>
                     <td>${element.contador}</td>
-                     <td>${element.idusuario}</td>    
+                    
                     <td>${element.usuario}</td>
                     <td>${element.contrasenia}</td>
                      <td class="form-actions">

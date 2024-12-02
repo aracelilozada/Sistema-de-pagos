@@ -19,7 +19,7 @@ $arrData = array(
     $contrasenia,
 );
 //preparamos la consulta
-$sql = "SELECT INTO usuario (usuario,contrasenia) VALUES (?,?);";
+$sql = "INSERT INTO usuario (usuario,contrasenia) VALUES (?,?);";
 $request = register($conexion, $arrData, $sql);
 if ($request) {
     echo json_encode([
