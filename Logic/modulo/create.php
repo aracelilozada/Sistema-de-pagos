@@ -2,13 +2,13 @@
 require_once "../mysql.php";
 require_once "../conexion.php";
 //Variables de la categoria
-$modulo = $_POST["txtmodulo"];
 $nombre = $_POST["txtnombre"];
 $descripcion = $_POST["txtdescripcion"];
-$estado = $_POST["txtestado"];
-$carrera = $_POST["txtcarrera"];
+$estado = $_POST["sltestado"];
+$carrera = $_POST["sltcarrera"];
+
 //validar que los campos no esten vacios
-if ($modulo == "" || $nombre == "" || $descripcion =="" ||  $estado ==""|| $carrera =="" ||) {
+if ($nombre == "" || $descripcion == "" || $estado =="" ||  $carrera =="") {
     echo json_encode([
         "status" => false,
         "msg" => "los campos no pueden estar vacios"
@@ -17,14 +17,13 @@ if ($modulo == "" || $nombre == "" || $descripcion =="" ||  $estado ==""|| $carr
 }
 //preparamos el array con los datos
 $arrData = array(
-    $idmodulo,
     $nombre,
     $descripcion,
     $estado,
-    $idcarrera
+    $carrera,
 );
 //preparamos la consulta
-$sql = "INSERT INTO modulo (idmodulo,nombre,descripcion,estado,idcarrera,) VALUES(?,?,?,?,?);";
+$sql = "INSERT INTO modulo (nombre,descripcion,estado,idcarrera) VALUE (?,?,?,?);";
 $request = register($conexion, $arrData, $sql);
 if ($request) {
     echo json_encode([

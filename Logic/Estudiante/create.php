@@ -15,6 +15,18 @@ if ($idpersona == "") {
 }
 $idusuario = $_SESSION["sesion_login"]["info"]["idusuario"];
 $estado = "activo";
+
+//preparamos validacion para no duplicar registro de estudiantes
+$sql = "SELECT *FROM estudiante WHERE idpersona =?";
+$arrData =array($idpersona);
+$response =select($conexion,$arrData,$sql);
+if ($response){
+    echo json_encode([
+        "status" => false,
+        "msg" => "Error de registro duplicado, no se puede crear un registro porque esta persona ya tiene un registro asignado "
+    ]);
+    die();
+}
 //preparamos el array con los datos
 $arrData = array(
     $idpersona,
@@ -22,12 +34,16 @@ $arrData = array(
     $estado
 );
 //preparamos la consulta
-$sql = "INSERT INTO estudiante (idpersona,idusuario,estado) VALUES(?,?,?);";
+$sql = "INSERT INTO Estudiante (idpersona,idusuario,estado) VALUES(?,?,?);";
 $request = register($conexion, $arrData, $sql);
 if ($request) {
     echo json_encode([
         "status" => true,
-        "msg" => "Registro de estudiante exitoso"
+        "msg" => "Registro de Estudiante exitoso"
     ]);
-    die();
+} else {
+    echo json_encode([
+        "status" => false,
+        "msg" => "Error al registrar la usuario"
+    ]);
 }

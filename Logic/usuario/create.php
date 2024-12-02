@@ -2,12 +2,11 @@
 require_once "../mysql.php";
 require_once "../conexion.php";
 //Variables de la categoria
-$idusuario = $_POST["txtidusuario"];
 $usuario = $_POST["txtusuario"];
-$contrasenia = $_POST["txtcontrsenia"];
+$contrasenia = $_POST["txtcontrasenia"];
 
 //validar que los campos no esten vacios
-if ($name == "" || $description == "") {
+if ($usuario == "" || $contrasenia == "") {
     echo json_encode([
         "status" => false,
         "msg" => "los campos no pueden estar vacios"
@@ -16,12 +15,11 @@ if ($name == "" || $description == "") {
 }
 //preparamos el array con los datos
 $arrData = array(
-    $idusuario,
     $usuario,
-    $contrasenia
+    $contrasenia,
 );
 //preparamos la consulta
-$sql = "INSERT INTO usuario (idusuario,usuario,contrasenia,) VALUES(?,?,?,);";
+$sql = "SELECT INTO usuario (usuario,contrasenia) VALUES (?,?);";
 $request = register($conexion, $arrData, $sql);
 if ($request) {
     echo json_encode([

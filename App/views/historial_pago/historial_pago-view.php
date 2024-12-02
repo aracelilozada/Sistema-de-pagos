@@ -9,17 +9,11 @@
 </head>
 
 <body>
+
     <!-- Menú lateral -->
-    <div class="sidebar" id="sidebar">
-        <h2 class="logo">Mi Sistema</h2>
-        <ul class="menu">
-            <li><a href="#dashboard" class="menu-link">Dashboard</a></li>
-            <li><a href="#usuarios" class="menu-link">Usuarios</a></li>
-            <li><a href="#reportes" class="menu-link">Reportes</a></li>
-            <li><a href="#configuracion" class="menu-link">Configuración</a></li>
-            <li><a href="#soporte" class="menu-link">Soporte</a></li>
-        </ul>
-    </div>
+    <?php
+    include "./views/menu.php";
+    ?>
 
     <!-- Contenedor principal -->
     <div class="main-content">
@@ -36,7 +30,7 @@
         </section>
         <section class="content-body">
             <div class="form-container">
-                <form action="">
+            <form id="formSend">
                 <div class="form-group">
                         <label for="txtidhistorial_pago">histoial de pago</label>
                         <input type="text" name="txtidhistorial_pago" id="txtidhistorial_pago" placeholder="Ingrese su pago" required>
@@ -61,6 +55,7 @@
                         <label for="txtestado_pago">Estado de Pago</label>
                         <input type="text" name="txtestado_pago" id="txtestado_pago" placeholder="Ingrese Tipo de pago" required>
                     </div>
+                  
                     <div class="form-actions">
                         <button type="reset" class="btn btn-secondary">Limpiar</button>
                         <button type="submit" class="btn btn-primary">Registrar</button>
@@ -90,8 +85,8 @@
     <script>
         let base_url = "<?= BASE_URL ?>";
     </script>
-      <script src="<?= BASE_URL ?>App/assets/js/main.js"></script>
-    <script src="<?= BASE_URL ?>App/assets/js/persona/functions_persona.js"></script>
+     <script src="<?= BASE_URL ?>App/assets/js/main.js"></script>
+    <script src="<?= BASE_URL ?>App/assets/js/historial_pago/functions_historial_pago.js"></script>
 </body>
 
-</html>
+</html>s

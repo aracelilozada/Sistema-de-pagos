@@ -38,7 +38,7 @@
                     </div>
                     <div class="form-group">
                         <label for="txtapellidos">Apellidos</label>
-                        <input type="text" name=txtapellidos" id="txtapellidos" placeholder="Ingrese los Apellidos de la Persona" required>
+                        <input type="text" name="txtapellidos" id="txtapellidos" placeholder="Ingrese los Apellidos de la Persona" required>
                     </div>
                     <div class="form-group">
                         <label for="txtDNI">DNI</label>
@@ -60,6 +60,7 @@
                         <label for="txtfechadenacimiento">Fecha de nacimiento</label>
                         <input type="date" name="txtfechadenacimiento" id="txtfechadenacimiento" placeholder="Ingrese FNacimiento de la Persona" required>
                     </div>
+            
                     <div class="form-actions">
                         <button type="reset" class="btn btn-secondary">Limpiar</button>
                         <button type="submit" class="btn btn-primary">Registrar</button>
@@ -71,7 +72,6 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>idpersona</th>
                             <th>Nombres</th>
                             <th>Apellidos</th>
                             <th>DNI</th>
@@ -79,6 +79,7 @@
                             <th>Correo</th>
                             <th>Direccion</th>
                             <th>FNacimiento</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody id="table-body">

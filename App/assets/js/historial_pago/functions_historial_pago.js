@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 function loadTable() {
     let table = document.getElementById("table-body");
-    let url = base_url + "Logic/storial_pago/read.php";
+    let url = base_url + "Logic/historial_pago/read.php";
     fetch(url)
         .then((Response) => {
             if (!Response.ok) {
@@ -18,13 +18,15 @@ function loadTable() {
                 let row = "";
                 arrData.forEach((element) => {
                     row += `<tr>
-             <td>${element.idhistorial_pago}</td>
+             <td>${element.contador}</td>
              <td>${element.idestudiante}</td>
              <td>${element.idpension}</td>
              <td>${element.fecha_pago}</td>
              <td>${element.pago}</td>
              <td>${element.estado_pago}</td>
-             <td>Botones</td>
+             <td class="form-actions">
+               <button class=btn-info"> Actualizar</button>
+               <button class="btn-danger btn-delete" data-id="${element.idhistorial_pago}"> Eliminar</button>
              </td>`;
                 });
                 table.innerHTML = row;
@@ -49,7 +51,7 @@ function sendData() {
             cache: "no-cache",
             body: data,
         };
-        const url = base_url + "Logic/storial_pago/create.php";
+        const url = base_url + "Logic/historial_pago/create.php";
         fetch(url, config)
             .then((result) => {
                 if (!result.ok) {

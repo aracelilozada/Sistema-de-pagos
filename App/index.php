@@ -13,7 +13,7 @@ switch ($view) {
         case "home":
         session_start(["name" => "Sistemapago"]);
         $view = $view . "-view.php";
-        require_once "./views/Home/" . $view;
+        require_once "./views/home/" . $view;
         break;
 
         case "carrera":
@@ -57,14 +57,7 @@ switch ($view) {
         $view = $view . "-view.php";
         require_once "./views/historial_pago/" . $view;
         break;
-
-        case "Home":
-            session_start(["name" => "Sistemapago"]);
-            $view = $view . "-view.php";
-            require_once "./views/Home/" . $view;
-            break;
-    
-
+        
      default:
         echo "Pagina no encontrada 404";
         break;

@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -12,16 +10,9 @@
 
 <body>
     <!-- Menú lateral -->
-    <div class="sidebar" id="sidebar">
-        <h2 class="logo">Mi Sistema</h2>
-        <ul class="menu">
-            <li><a href="#dashboard" class="menu-link">Dashboard</a></li>
-            <li><a href="#usuarios" class="menu-link">Usuarios</a></li>
-            <li><a href="#reportes" class="menu-link">Reportes</a></li>
-            <li><a href="#configuracion" class="menu-link">Configuración</a></li>
-            <li><a href="#soporte" class="menu-link">Soporte</a></li>
-        </ul>
-    </div>
+    <?php
+    include "./views/menu.php";
+    ?>
 
     <!-- Contenedor principal -->
     <div class="main-content">
@@ -48,8 +39,13 @@
                         <input type="text" name="txtdescripcion" id="txtdescripcion" placeholder="Ingrese una Descripcion" required>
                     </div>
                     <div class="form-group">
-                        <label for="txtestado">Estado</label>
-                        <input type="text" name="txtestado" id="txtestado" placeholder="Ingrese el estado">
+                        <label for="sltestado">Estado</label>
+                        <select name="sltestado"> 
+                            <option value="" disabled selected>selecciona un elemento</option>
+                            <option value="activo" >activo</option>
+                            <option value="inactivo" >inactivo</option>
+
+                        </select>
                     </div>
                     <div class="form-actions">
                         <button type="reset" class="btn btn-secondary">Limpiar</button>

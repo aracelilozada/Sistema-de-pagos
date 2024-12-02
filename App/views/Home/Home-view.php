@@ -31,6 +31,7 @@
         let base_url = "<?= BASE_URL ?>";
     </script>
     <script src="<?= BASE_URL ?>App/assets/js/main.js"></script>
+    
 </body>
 
 </html>

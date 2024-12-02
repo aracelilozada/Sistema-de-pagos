@@ -10,16 +10,9 @@
 
 <body>
     <!-- Menú lateral -->
-    <div class="sidebar" id="sidebar">
-        <h2 class="logo">Mi Sistema</h2>
-        <ul class="menu">
-            <li><a href="#dashboard" class="menu-link">Dashboard</a></li>
-            <li><a href="#usuarios" class="menu-link">Usuarios</a></li>
-            <li><a href="#reportes" class="menu-link">Reportes</a></li>
-            <li><a href="#configuracion" class="menu-link">Configuración</a></li>
-            <li><a href="#soporte" class="menu-link">Soporte</a></li>
-        </ul>
-    </div>
+    <?php
+    include "./views/menu.php";
+    ?>
 
     <!-- Contenedor principal -->
     <div class="main-content">
@@ -36,11 +29,25 @@
         </section>
         <section class="content-body">
             <div class="form-container">
-                <form action="">
-                <div class="form-group">
-                        <label for="txtidpension">Pension</label>
-                        <input type="text" name="txtidpension" id="txtidpension" placeholder="Ingrese pension" required>
+            <form id="formSend">
+            <div class="form-group">
+                        <label for="sltmodulo">modulo</label>
+                        <select name="sltmodulo" required id="sltmodulo">
+                            <option value="" selected disabled>selecciona un elemento</option>
+                            <?php
+                            require_once "../Logic/conexion.php";
+                            require_once "../Logic/mysql.php";
+                            $sql = "SELECT*FROM pension ;";
+                            $resultado = select_all($conexion, [], $sql);
+                            foreach ($resultado as $key => $value) {
+                            ?>
+                                <option value="<?= $value["idmodulo"] ?>"><?= $value["nombre"] ?></option>
+                            <?php
+                            }
+                            ?>
+                        </select>
                     </div>
+
                     <div class="form-group">
                         <label for="txtNombre">Nombre</label>
                         <input type="text" name="txtNombre" id="txtNombre" placeholder="Ingrese el nombre de la Persona" required>
@@ -57,10 +64,6 @@
                         <label for="txtporcentaje_incremento">Porcentahe de Incremento</label>
                         <input type="text" name="txtporcentaje_incremento" id="txtporcentaje_incremento" placeholder="Ingrese el porcentaje de incremento" required>
                     </div>
-                    <div class="form-group">
-                        <label for="txtidmodulo">Modulo</label>
-                        <input type="text" name="txtidmodulo" id="txtidmodulo" placeholder="Ingrese el modulo de la Persona" required>
-                    </div>
                     <div class="form-actions">
                         <button type="reset" class="btn btn-secondary">Limpiar</button>
                         <button type="submit" class="btn btn-primary">Registrar</button>
@@ -72,12 +75,11 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Pension</th>
                             <th>Nombre</th>
                             <th>Precio</th>
                             <th>PSJ.Descuento</th>
                             <th>PSJ.Incremento</th>
-                            <th>Modulo</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody id="table-body">
@@ -90,7 +92,8 @@
     <script>
         let base_url = "<?= BASE_URL ?>";
     </script>
-    <script src="<?= BASE_URL ?>App/assets/js/persona/functions_persona.js"></script>
+     <script src="<?= BASE_URL ?>App/assets/js/main.js"></script>
+    <script src="<?= BASE_URL ?>App/assets/js/pension/functions_pension.js"></script>
 </body>
 
 </html>

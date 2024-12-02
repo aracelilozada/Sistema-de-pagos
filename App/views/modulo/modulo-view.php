@@ -10,16 +10,9 @@
 
 <body>
     <!-- Menú lateral -->
-    <div class="sidebar" id="sidebar">
-        <h2 class="logo">Mi Sistema</h2>
-        <ul class="menu">
-            <li><a href="#dashboard" class="menu-link">Dashboard</a></li>
-            <li><a href="#usuarios" class="menu-link">Usuarios</a></li>
-            <li><a href="#reportes" class="menu-link">Reportes</a></li>
-            <li><a href="#configuracion" class="menu-link">Configuración</a></li>
-            <li><a href="#soporte" class="menu-link">Soporte</a></li>
-        </ul>
-    </div>
+    <?php
+    include "./views/menu.php";
+    ?>
 
     <!-- Contenedor principal -->
     <div class="main-content">
@@ -37,10 +30,24 @@
         <section class="content-body">
             <div class="form-container">
                 <form id="formSend">
-                    <div class="form-group">
-                        <label for="txtidmodulo">ID Módulo</label>
-                        <input type="text" name="txtidmodulo" id="txtidmodulo" placeholder="Ingrese el código del módulo" required>
+                <div class="form-group">
+                        <label for="sltcarrera">carrera</label>
+                        <select name="sltcarrera" required id="sltcarrera">
+                            <option value="" selected disabled>selecciona un elemento</option>
+                            <?php
+                            require_once "../Logic/conexion.php";
+                            require_once "../Logic/mysql.php";
+                            $sql = "SELECT*FROM carrera ;";
+                            $resultado = select_all($conexion, [], $sql);
+                            foreach ($resultado as $key => $value) {
+                            ?>
+                                <option value="<?= $value["idcarrera"] ?>"><?= $value["nombres"] ?></option>
+                            <?php
+                            }
+                            ?>
+                        </select>
                     </div>
+
                     <div class="form-group">
                         <label for="txtnombre">Nombre del Módulo</label>
                         <input type="text" name="txtnombre" id="txtnombre" placeholder="Ingrese el nombre del módulo" required>
@@ -50,12 +57,13 @@
                         <input type="text" name="txtdescripcion" id="txtdescripcion" placeholder="Ingrese una breve descripción del módulo">
                     </div>
                     <div class="form-group">
-                        <label for="txtestado">Estado</label>
-                        <input type="text" name="txtestado" id="txtestado" placeholder="Ingrese el estado del módulo">
-                    </div>
-                    <div class="form-group">
-                        <label for="txtidcarrera">ID Carrera</label>
-                        <input type="text" name="txtidcarrera" id="txtidcarrera" placeholder="Ingrese el código de la carrera" required>
+                        <label for="sltestado">Estado</label>
+                        <select name="sltestado"> 
+                            <option value="" disabled selected>selecciona un elemento</option>
+                            <option value="activo" >activo</option>
+                            <option value="inactivo" >inactivo</option>
+
+                        </select>
                     </div>
                     <div class="form-actions">
                         <button type="reset" class="btn btn-secondary">Limpiar</button>
@@ -64,7 +72,6 @@
                 </form>
             </div>
             <div class="table-container">
-            <div class="form-actions">
                 <table>
                     <thead>
                         <tr>
@@ -73,6 +80,7 @@
                             <th>Descripción</th>
                             <th>Estado</th>
                             <th>ID Carrera</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody id="table-body">
@@ -86,7 +94,7 @@
         let base_url = "<?= BASE_URL ?>";
     </script>
      <script src="<?= BASE_URL ?>App/assets/js/main.js"></script>
-    <script src="<?= BASE_URL ?>App/assets/js/Modulo/functions_Modulo.js"></script>
+    <script src="<?= BASE_URL ?>App/assets/js/modulo/functions_modulo.js"></script>
 </body>
 
 </html>

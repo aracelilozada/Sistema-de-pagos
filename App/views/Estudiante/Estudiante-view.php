@@ -58,7 +58,6 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>idestudiante</th>
                             <th>Nombres</th>
                             <th>apellidos</th>
                             <th>Estado</th>
@@ -76,7 +75,7 @@
         let base_url = "<?= BASE_URL ?>";
     </script>
     <script src="<?= BASE_URL ?>App/assets/js/main.js"></script>
-    <script src="<?= BASE_URL ?>App/assets/js/estudiante/functions_estudiante.js"></script>
+    <script src="<?= BASE_URL ?>App/assets/js/Estudiante/functions_Estudiante.js"></script>
 </body>
 
 </html>

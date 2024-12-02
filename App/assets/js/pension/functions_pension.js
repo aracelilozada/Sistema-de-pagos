@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function loadTable() {
 
     let table = document.getElementById("table-body");
-    let url = base_url + "Logic/pension/leer.php";
+    let url = base_url + "Logic/pension/read.php";
     fetch(url)
         .then((Response) => {
             if (!Response.ok) {
@@ -22,14 +22,16 @@ function loadTable() {
                 arrData.forEach((element) => {
                     row += ``;
                     row += `<tr>
-<td>${element.idpension}</td>
-<td>${element.nombre}</td>
-<td>${element.precio}</td>
-<td>${element.porcntajedescuento}</td>
-<td>${element.porcentajeincremento}</td>
-<td>${element.idmodulo}</td>
-<td>Botones</td>
-</tr>`;
+             <td>${element.idpension}</td>
+             <td>${element.nombre}</td>
+             <td>${element.precio}</td>
+             <td>${element.porcentaje_descuento}</td>
+             <td>${element.porcentaje_incremento}</td>
+             
+             <td class="form-actions">
+               <button class=btn-info"> Actualizar</button>
+               <button class="btn-danger btn-delete" data-id="${element.idpoension}"> Eliminar</button>
+             </tr>`;
                 });
                 table.innerHTML = row;
             }

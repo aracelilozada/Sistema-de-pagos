@@ -2,21 +2,22 @@
 require_once "../mysql.php";
 require_once "../conexion.php";
 //Variables de la categoria
-$name = $_POST["txtnombre"];
-$description = $_POST["txtdescripcion"];
-$estado = $_POST["txtestado"];
+$nombres = $_POST["txtnombre"];
+$descripcion = $_POST["txtdescripcion"];
+$estado = $_POST["sltestado"];
 //validar que los campos no esten vacios
-if ($name == "" || $description == "") {
+if ($nombres == "" || $descripcion == "" || $estado == "") {
     echo json_encode([
         "status" => false,
         "msg" => "Los campos no pueden estar vacio"
     ]);
     die();
 }
+
 //preparamos el array con los datos
 $arrData = array(
-    $name,
-    $description,
+    $nombres,
+    $descripcion,
     $estado,
 );
 //preparamos la consulta
@@ -28,4 +29,9 @@ if ($request) {
         "msg" => "Registro de carrera exitoso"
     ]);
     die();
+} else {
+    echo json_encode([
+        "status" => false,
+        "msg" => "Error al registrar la categoria"
+    ]);
 }

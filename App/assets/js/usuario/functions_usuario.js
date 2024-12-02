@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function loadTable() {
 
     let table = document.getElementById("table-body");
-    let url = base_url + "Logic/usuario/leer.php";
+    let url = base_url + "Logic/usuario/read.php";
     fetch(url)
         .then((Response) => {
             if (!Response.ok) {
@@ -22,12 +22,14 @@ function loadTable() {
                 arrData.forEach((element) => {
                     row += ``;
                     row += `<tr>
-<td>${element.idusuario}</td>
-<td>${element.usuario}</td>
-<td>${element.contrasenia}</td>
-
-<td>Botones</td>
-</tr>`;
+                    <td>${element.contador}</td>
+                     <td>${element.idusuario}</td>    
+                    <td>${element.usuario}</td>
+                    <td>${element.contrasenia}</td>
+                     <td class="form-actions">
+               <button class=btn-info"> Actualizar</button>
+               <button class="btn-danger btn-delete" data-id="${element.idusuario}"> Eliminar</button>
+                    </tr>`;
                 });
                 table.innerHTML = row;
             }

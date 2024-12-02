@@ -1,8 +1,8 @@
 <?php
 require_once "../conexion.php";
 require_once "../mysql.php";
-$sql="SELECT e.idestudiante,p.nombres,p.apellidos,e.estado from estudiante AS e
-INNER JOIN persona AS p ON p.idpersona=e.idpersona ";
+$sql="SELECT h.idhistorial_pago,h.idestudiante,h.idpension,h.fecha_pago,h.pago,h.estado_pago from historial_pago AS e
+INNER JOIN estudiante AS p ON h.idhistorial_pago=h.idestudiante= ";
 $request=select_all($conexion,[],$sql);
 $contador=1;
 foreach($request as $key => $value) { 

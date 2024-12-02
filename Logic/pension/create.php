@@ -2,14 +2,13 @@
 require_once "../mysql.php";
 require_once "../conexion.php";
 //Variables de la categoria
-$idpension = $_POST["txtidpension"];
 $name = $_POST["txtNombre"];
 $precio = $_POST["txtprecio"];
-$porcentajedescuento = $_POST["txtporcentajedescuento"];
-$porcentajeincrento = $_POST["txtporcentajeincremento"];
-$idmodulo = $_POST["txtidmodulo"];
+$porcentajedescuento = $_POST["txtporcentaje_descuento"];
+$porcentajeincrento = $_POST["txtporcentaje_incremento"];
+$modulo = $_POST["sltmodulo"];
 //validar que los campos no esten vacios
-if ($name == "" || $description == "") {
+if ($name == "" || $precio == "" || $porcentajedescuento == "" || $porcentajeincrento == "" || $modulo == "") {
     echo json_encode([
         "status" => false,
         "msg" => "los campos no pueden estar vacios"
@@ -18,15 +17,14 @@ if ($name == "" || $description == "") {
 }
 //preparamos el array con los datos
 $arrData = array(
-    $idpension,
-    $nombre,
+    $name,
     $precio,
     $porcentajedescuento,
-    $porcentajeincremento,
-    $idmodulo
+    $porcentajeincrento,
+    $modulo,
 );
 //preparamos la consulta
-$sql = "INSERT INTO pension (idpension,nombre,precio,porcentajedescuento,porcentsjeincremento,idmodulo) VALUES(?,?,?,?,?,?,);";
+$sql = "INSERT INTO pension (nombre,precio,porcentaje_descuento,porcentaje_incremento,idmodulo) VALUE (?,?,?,?,?);";
 $request = register($conexion, $arrData, $sql);
 if ($request) {
     echo json_encode([

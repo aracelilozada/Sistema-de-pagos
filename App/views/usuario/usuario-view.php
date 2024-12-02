@@ -10,16 +10,9 @@
 
 <body>
     <!-- Menú lateral -->
-    <div class="sidebar" id="sidebar">
-        <h2 class="logo">Mi Sistema</h2>
-        <ul class="menu">
-            <li><a href="#dashboard" class="menu-link">Dashboard</a></li>
-            <li><a href="#usuarios" class="menu-link">Usuarios</a></li>
-            <li><a href="#reportes" class="menu-link">Reportes</a></li>
-            <li><a href="#configuracion" class="menu-link">Configuración</a></li>
-            <li><a href="#soporte" class="menu-link">Soporte</a></li>
-        </ul>
-    </div>
+    <?php
+    include "./views/menu.php";
+    ?>  
 
     <!-- Contenedor principal -->
     <div class="main-content">
@@ -36,11 +29,7 @@
         </section>
         <section class="content-body">
             <div class="form-container">
-                <form action="">
-                    <div class="form-group">
-                        <label for="txtNombre">idusuario</label>
-                        <input type="text" name="txtidusuario" id="txtidusuario" placeholder="Ingrese el codigo de usuario" required>
-                    </div>
+                <form id="formSend">
                     <div class="form-group">
                         <label for="txtNombre">usuario</label>
                         <input type="text" name="txtusuario" id="txtusuario" placeholder="Ingrese el nombre del usuario" required>
@@ -60,10 +49,9 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>idusuario</th>
                             <th>usuario</th>
                             <th>contrasenia</th>
-                           
+                           <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody id="table-body">
@@ -76,6 +64,7 @@
     <script>
         let base_url = "<?= BASE_URL ?>";
     </script>
+    <script src="<?= BASE_URL ?>App/assets/js/main.js"></script>
     <script src="<?= BASE_URL ?>App/assets/js/usuario/functions_usuario.js"></script>
 </body>
 
