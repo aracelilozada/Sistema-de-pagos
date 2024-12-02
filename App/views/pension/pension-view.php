@@ -29,19 +29,29 @@
         </section>
         <section class="content-body">
             <div class="form-container">
-            <form id="formSend">
-            <div class="form-group">
+                <form id="formSend">
+                    <div class="form-group">
                         <label for="sltmodulo">modulo</label>
                         <select name="sltmodulo" required id="sltmodulo">
                             <option value="" selected disabled>selecciona un elemento</option>
                             <?php
                             require_once "../Logic/conexion.php";
                             require_once "../Logic/mysql.php";
-                            $sql = "SELECT*FROM pension ;";
+                            $sql = "SELECT*FROM carrera;";
                             $resultado = select_all($conexion, [], $sql);
                             foreach ($resultado as $key => $value) {
                             ?>
-                                <option value="<?= $value["idmodulo"] ?>"><?= $value["nombre"] ?></option>
+                                <optgroup label="<?= $value["nombres"] ?>">
+                                    <?php
+                                    $sql = "SELECT*FROM modulo WHERE idcarrera=" . $value["idcarrera"] . ";";
+                                    $resultado = select_all($conexion, [], $sql);
+                                    foreach ($resultado as $key => $value) {
+                                    ?>
+                                        <option value="<?= $value["idmodulo"] ?>"><?= $value["nombre"] ?></option>
+                                    <?php
+                                    }
+                                    ?>
+                                </optgroup>
                             <?php
                             }
                             ?>
@@ -83,7 +93,7 @@
                         </tr>
                     </thead>
                     <tbody id="table-body">
-                        
+
                     </tbody>
                 </table>
             </div>
@@ -92,7 +102,7 @@
     <script>
         let base_url = "<?= BASE_URL ?>";
     </script>
-     <script src="<?= BASE_URL ?>App/assets/js/main.js"></script>
+    <script src="<?= BASE_URL ?>App/assets/js/main.js"></script>
     <script src="<?= BASE_URL ?>App/assets/js/pension/functions_pension.js"></script>
 </body>
 

@@ -30,18 +30,42 @@
         </section>
         <section class="content-body">
             <div class="form-container">
-            <form id="formSend">
-                <div class="form-group">
-                        <label for="txtidhistorial_pago">histoial de pago</label>
-                        <input type="text" name="txtidhistorial_pago" id="txtidhistorial_pago" placeholder="Ingrese su pago" required>
+                <form id="formSend">
+                    <div class="form-group">
+                        <label for="sltEstudiante">Estudiante</label>
+                        <select name="sltEstudiante" required id="sltEstudiante">
+                            <option value="" selected disabled>selecciona un elemento</option>
+                            <?php
+                            require_once "../Logic/conexion.php";
+                            require_once "../Logic/mysql.php";
+                            $sql = "SELECT*FROM persona AS p 
+                                    INNER JOIN estudiante AS e ON e.idpersona=p.idpersona;";
+                            $resultado = select_all($conexion, [], $sql);
+                            foreach ($resultado as $key => $value) {
+                            ?>
+                                <option value="<?= $value["idestudiante"] ?>"><?= $value["nombres"] . " " . $value["apellidos"] ?></option>
+                            <?php
+                            }
+                            ?>
+                        </select>
                     </div>
                     <div class="form-group">
-                        <label for="txtidestudiante">N° Del Estuante</label>
-                        <input type="text" name="txtidestudiante" id="txtidestudiante" placeholder="Ingrese su codigo de estuadiante" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="txtidpension">Pension</label>
-                        <input type="number"name="txtidpension" id="txtidpension" placeholder="Ingrese la Pension" required>
+                        <label for="sltPension">Pension</label>
+                        <select name="sltPension" required id="sltPension">
+                            <option value="" selected disabled>selecciona un elemento</option>
+                            <?php
+                            require_once "../Logic/conexion.php";
+                            require_once "../Logic/mysql.php";
+                            $sql = "SELECT*FROM persona AS p 
+                                    INNER JOIN estudiante AS e ON e.idpersona=p.idpersona;";
+                            $resultado = select_all($conexion, [], $sql);
+                            foreach ($resultado as $key => $value) {
+                            ?>
+                                <option value="<?= $value["idestudiante"] ?>"><?= $value["nombres"] . " " . $value["apellidos"] ?></option>
+                            <?php
+                            }
+                            ?>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="txtFecha_pago">Fecha de pago</label>
@@ -51,11 +75,6 @@
                         <label for="txtpago">S/.Pago</label>
                         <input type="number" name="txtpago" id="txtpago" placeholder="Ingrese el monto de pago" required>
                     </div>
-                    <div class="form-group">
-                        <label for="txtestado_pago">Estado de Pago</label>
-                        <input type="text" name="txtestado_pago" id="txtestado_pago" placeholder="Ingrese Tipo de pago" required>
-                    </div>
-                  
                     <div class="form-actions">
                         <button type="reset" class="btn btn-secondary">Limpiar</button>
                         <button type="submit" class="btn btn-primary">Registrar</button>
@@ -76,7 +95,7 @@
                         </tr>
                     </thead>
                     <tbody id="table-body">
-                        
+
                     </tbody>
                 </table>
             </div>
@@ -85,7 +104,7 @@
     <script>
         let base_url = "<?= BASE_URL ?>";
     </script>
-     <script src="<?= BASE_URL ?>App/assets/js/main.js"></script>
+    <script src="<?= BASE_URL ?>App/assets/js/main.js"></script>
     <script src="<?= BASE_URL ?>App/assets/js/historial_pago/functions_historial_pago.js"></script>
 </body>
 
