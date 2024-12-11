@@ -23,18 +23,24 @@ function loadTable() {
         arrData.forEach((element) => {
           row += `<tr>
                     <td>${element.contador}</td>
-                    <td>${element.idestudiante}</td>
-                    <td>${element.idpension}</td>
+                    <td>${element.nombres + " " + element.apellidos}</td>
+                    <td>${element.nombre}</td>
                     <td>${element.fecha_pago}</td>
                     <td>${element.pago}</td>
                     <td class="form-actions">
-                    <button class="btn-info btn-update" 
-                                data-id="${element.idhistorial_pago}"
-                                data-idpension="${element.idpension}"
-                                data-idestudiante="${element.idestudiante}"
-                                data-fecha_pago="${element.fecha_pago}"
-                                data-pago="${element.pago}"> Actualizar</button>
-                    <button class="btn-danger btn-delete" data-id="${element.idhistorial_pago}"> Eliminar</button>
+                    <div class="form-actions">
+                    <a href="${base_url}/imprimir.php?data-id=${
+            element.idhistorial_pago
+          }&data-pension=${element.nombre}&data-estudiante=${
+            element.nombres + " " + element.apellidos
+          }&data-fecha_pago=${element.fecha_pago}&data-pago=${
+            element.pago
+          }" target="_Blank" class="btn btn-primary" 
+                                >Imprimir</a>
+                    <button class="btn btn-danger btn-delete" data-id="${
+                      element.idhistorial_pago
+                    }"> Eliminar</button>
+                    </div>
                 </td>`;
         });
         table.innerHTML = row;
