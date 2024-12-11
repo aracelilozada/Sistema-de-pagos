@@ -31,39 +31,39 @@
         <section class="content-body">
             <div class="form-container">
                 <form id="formSend">
-
-                    <div class="form-group">
-                        <label for="txtnombres">Nombre</label>
-                        <input type="text" name="txtnombres" id="txtnombres" placeholder="Ingrese el nombre de la Persona" required>
+                    <div class="inputs">
+                        <div class="form-group">
+                            <label for="txtnombres">Nombre</label>
+                            <input type="text" name="txtnombres" id="txtnombres" placeholder="Ingrese el nombre de la Persona" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtapellidos">Apellidos</label>
+                            <input type="text" name="txtapellidos" id="txtapellidos" placeholder="Ingrese los Apellidos de la Persona" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtDNI">DNI</label>
+                            <input type="text" name="txtDNI" id="txtDNI" minlength="8" maxlength="8" placeholder="Ingrese DNI de la Persona" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="txttelefono">Telefono</label>
+                            <input type="text" name="txttelefono" id="txttelefono" maxlength="9" minlength="9" placeholder="Ingrese el Telefono de la Persona" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtcorreo">Correo</label>
+                            <input type="text" name="txtcorreo" id="txtcorreo" placeholder="Ingrese el Correo de la Persona" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtdireccion">Direccion</label>
+                            <input type="text" name="txtdireccion" id="txtdireccion" placeholder="Ingrese la Direccion de la Persona" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtfechadenacimiento">Fecha de nacimiento</label>
+                            <input type="date" name="txtfechadenacimiento" id="txtfechadenacimiento" placeholder="Ingrese FNacimiento de la Persona" required>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="txtapellidos">Apellidos</label>
-                        <input type="text" name="txtapellidos" id="txtapellidos" placeholder="Ingrese los Apellidos de la Persona" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="txtDNI">DNI</label>
-                        <input type="text" name="txtDNI" id="txtDNI" placeholder="Ingrese DNI de la Persona" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="txttelefono">Telefono</label>
-                        <input type="text" name="txttelefono" id="txttelefono" placeholder="Ingrese el Telefono de la Persona" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="txtcorreo">Correo</label>
-                        <input type="text" name="txtcorreo" id="txtcorreo" placeholder="Ingrese el Correo de la Persona" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="txtdireccion">Direccion</label>
-                        <input type="text" name="txtdireccion" id="txtdireccion" placeholder="Ingrese la Direccion de la Persona" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="txtfechadenacimiento">Fecha de nacimiento</label>
-                        <input type="date" name="txtfechadenacimiento" id="txtfechadenacimiento" placeholder="Ingrese FNacimiento de la Persona" required>
-                    </div>
-            
                     <div class="form-actions">
                         <button type="reset" class="btn btn-secondary">Limpiar</button>
-                        <button type="submit" class="btn btn-primary">Registrar</button>
+                        <button type="submit" class="btn btn-primary" id="btnsendData">Registrar</button>
                     </div>
                 </form>
             </div>

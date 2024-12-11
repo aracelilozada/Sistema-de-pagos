@@ -30,26 +30,29 @@
         <section class="content-body">
             <div class="form-container">
                 <form id="formSend">
-                    <div class="form-group">
-                        <label for="txtnombre">Nombre</label>
-                        <input type="text" name="txtnombre" id="txtnombre" placeholder="Ingrese el nombre de la carrera" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="txtdescripcion">Descripcion</label>
-                        <input type="text" name="txtdescripcion" id="txtdescripcion" placeholder="Ingrese una Descripcion" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="sltestado">Estado</label>
-                        <select name="sltestado"> 
-                            <option value="" disabled selected>selecciona un elemento</option>
-                            <option value="activo" >activo</option>
-                            <option value="inactivo" >inactivo</option>
+                    <div class="inputs">
 
-                        </select>
+                        <div class="form-group">
+                            <label for="txtnombre">Nombre</label>
+                            <input type="text" name="txtnombre" id="txtnombre" placeholder="Ingrese el nombre de la carrera" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtdescripcion">Descripcion</label>
+                            <input type="text" name="txtdescripcion" id="txtdescripcion" placeholder="Ingrese una Descripcion" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="sltestado">Estado</label>
+                            <select name="sltestado" id="sltestado" required>
+                                <option value="" disabled selected>selecciona un elemento</option>
+                                <option value="activo">activo</option>
+                                <option value="inactivo">inactivo</option>
+
+                            </select>
+                        </div>
                     </div>
                     <div class="form-actions">
                         <button type="reset" class="btn btn-secondary">Limpiar</button>
-                        <button type="submit" class="btn btn-primary">Registrar</button>
+                        <button type="submit" class="btn btn-primary" id="btnsenData">Registrar</button>
                     </div>
                 </form>
             </div>

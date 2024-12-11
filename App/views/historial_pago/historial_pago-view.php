@@ -56,15 +56,35 @@
                             <?php
                             require_once "../Logic/conexion.php";
                             require_once "../Logic/mysql.php";
-                            $sql = "SELECT*FROM persona AS p 
-                                    INNER JOIN estudiante AS e ON e.idpersona=p.idpersona;";
-                            $resultado = select_all($conexion, [], $sql);
-                            foreach ($resultado as $key => $value) {
+                            $sql = "SELECT*FROM carrera;";
+                            $resultado1 = select_all($conexion, [], $sql);
+                            foreach ($resultado1 as $key1 => $value1) {
                             ?>
-                                <option value="<?= $value["idestudiante"] ?>"><?= $value["nombres"] . " " . $value["apellidos"] ?></option>
+                                <optgroup label="<?= $value1["nombres"] ?>">
+                                    <?php
+                                    $sql = "SELECT*FROM modulo WHERE idcarrera=" . $value1["idcarrera"] . ";";
+                                    $resultado2 = select_all($conexion, [], $sql);
+                                    foreach ($resultado2 as $key2 => $value2) {
+                                    ?>
+                                <optgroup label="<?= $value2["nombre"] ?>">
+                                    <?php
+                                        $sql = "SELECT*FROM pension WHERE idmodulo=" . $value2["idmodulo"] . ";";
+                                        $resultado3 = select_all($conexion, [], $sql);
+                                        foreach ($resultado3 as $key3 => $value3) {
+                                    ?>
+                                        <option value="<?= $value3["idpension"] ?>"><?= $value3["nombre"] ?></option>
+                                    <?php
+                                        }
+                                    ?>
+                                </optgroup>
+
                             <?php
-                            }
+                                    }
                             ?>
+                            </optgroup>
+                        <?php
+                            }
+                        ?>
                         </select>
                     </div>
                     <div class="form-group">
@@ -77,7 +97,7 @@
                     </div>
                     <div class="form-actions">
                         <button type="reset" class="btn btn-secondary">Limpiar</button>
-                        <button type="submit" class="btn btn-primary">Registrar</button>
+                        <button type="submit" class="btn btn-primary" id="btnsendData">Registrar</button>
                     </div>
                 </form>
             </div>
@@ -86,12 +106,12 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>histoial de pago</th>
-                            <th>N° Del Estuante</th>
+                            <th>Estudiante</th>
                             <th>Pension</th>
                             <th>Fecha de pago</th>
                             <th>S/.Pago</th>
-                            <th>Estado de Pago</th>
+                            
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody id="table-body">

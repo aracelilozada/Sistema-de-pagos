@@ -2,31 +2,36 @@
 require_once "../mysql.php";
 require_once "../conexion.php";
 //Variables de la categoria
-$idhistorial_pago = $_POST["slthistorial_pago"];
+$estudiante = $_POST["sltEstudiante"];
+$pension = $_POST["sltPension"];
+$fecha_pago = $_POST["txtFecha_pago"];
+$pago = $_POST["txtpago"];
 session_start(["name" => "Sistemapago"]);
 
 //validar que los campos no esten vacios
-if ($idhistorial_pago == "") {
+if ($estudiante == "" || $pension == "" || $fecha_pago == ""|| $pago == "") {
     echo json_encode([
         "status" => false,
         "msg" => "Los campos no pueden estar vacio"
     ]);
     die();
 }
-$idestudiante = $_SESSION["sesion_login"]["info"]["idhistorial_pago"];
-$estado = "activo";
+if(isset($_POST["historial_pago"])){
+    $id=$_POST["historial_pago"];
+    require_once "./update.php";
+    die();
+}
+
 //preparamos el array con los datos
 $arrData = array(
-    $idhistorial_pago,
-    $idestudiante,
-    $idpension,
+    $estudiante,
+    $pension,
     $fecha_pago,
     $pago,
-    $estado_pago,
     
 );
 //preparamos la consulta
-$sql = "INSERT INTO historial_pago (idhistorial_pago,idestudiante,idpension,fecha_pago,pago,estado_pago) VALUES(?,?,?,?,?,?);";
+$sql = "INSERT INTO historial_pago (idestudiante,idpension,fecha_pago,pago) VALUES (?,?,?,?);";
 $request = register($conexion, $arrData, $sql);
 if ($request) {
     echo json_encode([
@@ -34,4 +39,9 @@ if ($request) {
         "msg" => "Registro de historial_pago exitoso"
     ]);
     die();
+} else {
+    echo json_encode([
+        "status" => false,
+        "msg" => "Error al registrar la categoria"
+    ]);
 }

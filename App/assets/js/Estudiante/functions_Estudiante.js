@@ -26,7 +26,7 @@ function loadTable() {
              <td>${element.apellidos}</td>  
              <td>${element.estado}</td>
               <td class="form-actions">
-               <button class=btn-info"> Actualizar</button>
+            
                <button class="btn-danger btn-delete" data-id="${element.idestudiante}"> Eliminar</button>
              </tr>`;
                 });

@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
     SendData();
         daleteData();
+        loadUpdate();
     }, 1000);
 
 });
@@ -34,7 +35,15 @@ function loadTable() {
     <td>${element.direccion}</td>
     <td>${element.fecha_de_nacimiento}</td>
     <td class="form-actions">
-    <button class=btn-info"> Actualizar</button>
+    <button class="btn-info btn-update"    
+                                data-id="${element.idpersona}"
+                                data-nombres="${element.nombres}"
+                                data-apellidos="${element.apellidos}"
+                                data-DNI="${element.DNI}"
+                                data-telefono="${element.telefono}"
+                                data-correo_electronico="${element.correo_electronico}"
+                                data-direccion="${element.direccion}"
+                                data-fecha_de_nacimiento="${element.fecha_de_nacimiento}"> Actualizar</button>
     <button class="btn-danger btn-delete" data-id="${element.idpersona}"> Eliminar</button>
     </tr>`;
                 });
@@ -47,6 +56,7 @@ function loadTable() {
         });
 
 }
+/*Este foncion se encarga de enviar la data y registrar o actualizar */
 function SendData() {
     let dataFormSend = document.getElementById("formSend");
     dataFormSend.addEventListener("submit", (e) => {
@@ -75,6 +85,15 @@ function SendData() {
                     alert(resData.msg);
                     setTimeout(() => {
                         daleteData();
+                        loadUpdate();
+                        let formSend = document.getElementById("formSend");
+                        let inputHidden = formSend.querySelector(
+                          "input[name='carrera']"
+                        );
+                        if (inputHidden) {
+                          inputHidden.remove();
+                        }
+                        document.getElementById("btnsendData").innerHTML = "Registrar";
                     }, 500);
                 } else {
                     alert(resData.msg);
@@ -120,6 +139,7 @@ function daleteData() {
                             alert(resData.msg);
                             setTimeout(() => {
                             daleteData();
+                            loadUpdate();
                             }, 500);
                         } else
                             alert(resData.msg);
@@ -131,3 +151,37 @@ function daleteData() {
         });
     });
 }
+
+//Esta funcion se encarga de actualizar un registro
+function loadUpdate() {
+    const btnUpdate = document.querySelectorAll(".btn-update");
+    btnUpdate.forEach((element) => {
+      element.addEventListener("click", (e) => {
+        const id = element.getAttribute("data-id");
+        const nombres = element.getAttribute("data-nombres");
+        const apellidos = element.getAttribute("data-apellidos");
+        const DNI = element.getAttribute("data-DNI");
+        const telefono = element.getAttribute("data-telefono");
+        const correo_electronico = element.getAttribute("data-correo_electronico");
+        const direccion = element.getAttribute("data-direccion");
+        const fecha_de_nacimiento = element.getAttribute("data-fecha_de_nacimiento");
+        //carga en los campos del formulario/
+        document.getElementById("txtnombres").value = nombres;
+        document.getElementById("txtapellidos").value = apellidos;
+        document.getElementById("txtDNI").value = DNI;
+        document.getElementById("txttelefono").value = telefono;
+        document.getElementById("txtcorreo").value = correo_electronico;
+        document.getElementById("txtdireccion").value = direccion;
+        document.getElementById("txtfechadenacimiento").value = fecha_de_nacimiento;
+        document.getElementById("btnsendData").innerHTML = "Actualizar";
+        /**creamos el elemento de tipo hidden que ya a contener el id */
+        const inputHidden = document.createElement("input");
+        inputHidden.setAttribute("type", "hidden");
+        inputHidden.setAttribute("name", "btnsendData");
+        inputHidden.setAttribute("value", id);
+        /**agregamos el input al formulario */
+        document.getElementById("formSend").appendChild(inputHidden);
+        alert("Campos cargados");
+      });
+    });
+  }

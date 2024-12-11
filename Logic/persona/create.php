@@ -9,6 +9,7 @@ $txttelefono=$_POST["txttelefono"];
 $txtcorreo=$_POST["txtcorreo"];
 $txtdireccion=$_POST["txtdireccion"];
 $txtfechan=$_POST["txtfechadenacimiento"];
+session_start(["name" => "Sistemapago"]);
 
 //validar que los campos no esten vacios
 if ($txtnombre== "" || $txtapellidos == "" || $txtDNI == "" || $txttelefono == "" || $txtcorreo == "" || $txtdireccion == "" || $txtfechan == "") {

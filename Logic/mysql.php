@@ -57,8 +57,7 @@ function update($conexion, array $arrData = array(), string $sql)
         //preparamos la consulta con la conexion
         $prepared = $conexion->prepare($sql);
         $prepared->execute($arrData);
-        $request = $prepared->fetch(PDO::FETCH_ASSOC);
-        return $request;
+        return $prepared;
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
     }

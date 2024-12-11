@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
         SendData();
     deleteData();
+    loadUpdate();
     }, 1000);   
 });
 function loadTable() {
@@ -30,9 +31,15 @@ function loadTable() {
              <td>${element.precio}</td>
              <td>${element.porcentaje_descuento}</td>
              <td>${element.porcentaje_incremento}</td>
-             
+             <td>${element.idmodulo}</td>
              <td class="form-actions">
-               <button class=btn-info"> Actualizar</button>
+               <button class="btn-info btn-update"
+                data-id="${element.idpension}"
+                data-nombre="${element.nombre}"
+                data-precio="${element.precio}"
+                data-porcentaje_descuento="${element.porcentaje_descuento}"
+                data-porcentaje_incremento="${element.porcentaje_incremento}"
+                data-idmodulo="${element.idmodulo}"> Actualizar</button>
                <button class="btn-danger btn-delete" data-id="${element.idpension}"> Eliminar</button>
              </tr>`;
                 });
@@ -73,6 +80,7 @@ function SendData() {
                     alert(resData.msg);
                     setTimeout(() => {
                         deleteData();
+                        loadUpdate();
                         }, 500);
                 } else {
                     alert(resData.msg);
@@ -116,6 +124,7 @@ function deleteData() {
                             alert(resData.msg);
                             setTimeout(() => {
                             deleteData();
+                            loadUpdate();
                             }, 500);
                         } else
                             alert(resData.msg);
@@ -127,3 +136,31 @@ function deleteData() {
         });
     });
 }
+  function loadUpdate() {
+    const btnUpdate = document.querySelectorAll(".btn-update");
+    btnUpdate.forEach((element) => {
+      element.addEventListener("click", (e) => {
+        const id = element.getAttribute("data-id");
+        const nombre = element.getAttribute("data-nombre");
+        const precio = element.getAttribute("data-precio");
+        const porcentaje_descuento = element.getAttribute("data-porcentaje_descuento");
+        const porcentaje_incremento = element.getAttribute("data-porcentaje_incremento");
+        const idmodulo = element.getAttribute("data-idmodulo");
+        //*carga en los campos del formulari
+        document.getElementById("txtNombre").value = nombre;
+        document.getElementById("txtprecio").value = precio;
+        document.getElementById("txtporcentaje_descuento").value = porcentaje_descuento;
+        document.getElementById("txtporcentaje_incremento").value = porcentaje_incremento;
+        document.getElementById("sltmodulo").value = idmodulo;
+        document.getElementById("btnsendData").innerHTML = "Actualizar";
+        /**creamos el elemento de tipo hidden que ya a contener el id */
+        const inputHidden = document.createElement("input");
+        inputHidden.setAttribute("type", "hidden");
+        inputHidden.setAttribute("name", "pension");
+        inputHidden.setAttribute("value", id);
+        /**agregamos el input al formulario */
+        document.getElementById("formSend").appendChild(inputHidden);
+        alert("Campos cargados");
+      });
+    });
+  }

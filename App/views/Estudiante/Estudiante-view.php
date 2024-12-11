@@ -29,24 +29,25 @@
         <section class="content-body">
             <div class="form-container">
                 <form id="formSend">
-                    <div class="form-group">
-                        <label for="sltPersona">Personas</label>
-                        <select name="sltPersona" required id="sltPersona">
-                            <option value="" selected disabled>selecciona un elemento</option>
-                            <?php
-                            require_once "../Logic/conexion.php";
-                            require_once "../Logic/mysql.php";
-                            $sql = "SELECT*FROM persona ;";
-                            $resultado = select_all($conexion, [], $sql);
-                            foreach ($resultado as $key => $value) {
-                            ?>
-                                <option value="<?= $value["idpersona"] ?>"><?= $value["nombres"] . " " . $value["apellidos"] ?></option>
-                            <?php
-                            }
-                            ?>
-                        </select>
+                    <div class="inputs">
+                        <div class="form-group">
+                            <label for="sltPersona">Personas</label>
+                            <select name="sltPersona" required id="sltPersona">
+                                <option value="" selected disabled>selecciona un elemento</option>
+                                <?php
+                                require_once "../Logic/conexion.php";
+                                require_once "../Logic/mysql.php";
+                                $sql = "SELECT*FROM persona ;";
+                                $resultado = select_all($conexion, [], $sql);
+                                foreach ($resultado as $key => $value) {
+                                ?>
+                                    <option value="<?= $value["idpersona"] ?>"><?= $value["nombres"] . " " . $value["apellidos"] ?></option>
+                                <?php
+                                }
+                                ?>
+                            </select>
+                        </div>
                     </div>
-
                     <div class="form-actions">
                         <button type="reset" class="btn btn-secondary">Limpiar</button>
                         <button type="submit" class="btn btn-primary">Registrar</button>

@@ -5,12 +5,19 @@ require_once "../conexion.php";
 $nombres = $_POST["txtnombre"];
 $descripcion = $_POST["txtdescripcion"];
 $estado = $_POST["sltestado"];
+session_start(["name" => "Sistemapago"]);
 //validar que los campos no esten vacios
 if ($nombres == "" || $descripcion == "" || $estado == "") {
     echo json_encode([
         "status" => false,
         "msg" => "Los campos no pueden estar vacio"
     ]);
+    die();
+}
+
+if(isset($_POST["carrera"])){
+    $id=$_POST["carrera"];
+    require_once "./update.php";
     die();
 }
 
@@ -21,7 +28,7 @@ $arrData = array(
     $estado,
 );
 //preparamos la consulta
-$sql = "INSERT INTO carrera (nombres,descripcion,estado) VALUES(?,?,?);";
+$sql = "INSERT INTO carrera (nombres, descripcion, estado) VALUES (?,?,?);";
 $request = register($conexion, $arrData, $sql);
 if ($request) {
     echo json_encode([
@@ -32,6 +39,6 @@ if ($request) {
 } else {
     echo json_encode([
         "status" => false,
-        "msg" => "Error al registrar la categoria"
+        "msg" => "Error al registrar la carrera"
     ]);
 }

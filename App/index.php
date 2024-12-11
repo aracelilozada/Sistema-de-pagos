@@ -4,61 +4,61 @@ if (!isset($_GET["v"])) {
     $_GET["v"] = "login";
 }
 $view = $_GET["v"];
+
+session_start(["name" => "Sistemapago"]);
+if ($view != "login") {
+    if (!isset($_SESSION["sesion_login"]["info"])) {
+        $view = "login";
+    }
+}
+
 switch ($view) {
     case "login":
         $view = $view . "-view.php";
         require_once "./views/Login/" . $view;
         break;
 
-        case "home":
-        session_start(["name" => "Sistemapago"]);
+    case "home":
         $view = $view . "-view.php";
         require_once "./views/home/" . $view;
         break;
 
-        case "carrera":
-        session_start(["name" => "Sistemapago"]);
+    case "carrera":
         $view = $view . "-view.php";
         require_once "./views/carrera/" . $view;
         break;
 
-       case "usuario":
-        session_start(["name" => "Sistemapago"]);
+    case "usuario":
         $view = $view . "-view.php";
         require_once "./views/usuario/" . $view;
         break;
 
-        case "persona":
-        session_start(["name" => "Sistemapago"]);
+    case "persona":
         $view = $view . "-view.php";
         require_once "./views/persona/" . $view;
         break;
 
-         case "Estudiante":
-        session_start(["name" => "Sistemapago"]);
+    case "Estudiante":
         $view = $view . "-view.php";
         require_once "./views/Estudiante/" . $view;
         break;
 
-         case "modulo":
-        session_start(["name" => "Sistemapago"]);
+    case "modulo":
         $view = $view . "-view.php";
         require_once "./views/modulo/" . $view;
         break;
 
-        case "pension":
-        session_start(["name" => "Sistemapago"]);
+    case "pension":
         $view = $view . "-view.php";
         require_once "./views/pension/" . $view;
         break;
-    
-        case "historial_pago":
-        session_start(["name" => "Sistemapago"]);
+
+    case "historial_pago":
         $view = $view . "-view.php";
         require_once "./views/historial_pago/" . $view;
         break;
-        
-     default:
+
+    default:
         echo "Pagina no encontrada 404";
         break;
 }

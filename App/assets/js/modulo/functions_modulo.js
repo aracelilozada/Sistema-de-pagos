@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
         sendData();
         deleteData();
+        loadUpdate();
     }, 1000);
 });
 
@@ -29,7 +30,12 @@ function loadTable() {
                             <td>${element.estado}</td>
                             <td>${element.idcarrera}</td>
                             <td class="form-actions">
-                            <button class=btn-info"> Actualizar</button>
+                            <button class="btn-info btn-update"
+                            data-id="${element.idmodulo}"
+                            data-id="${element.nombre}"
+                            data-id="${element.descripcion}"
+                            data-id="${element.estado}"
+                            data-id="${element.idcarrera}"> Actualizar</button>
                             <button class="btn-danger btn-delete" data-id="${element.idmodulo}"> Eliminar</button>
                             </td>
                         </tr>`;
@@ -70,7 +76,14 @@ function sendData() {
                     dataFormSend.reset();
                     alert(resData.msg);
                     setTimeout(() => {
-                        deleteData();
+                    deleteData();
+                    loadUpdate();
+                    let formSend = document.getElementById("formSend");
+                    let inputHidden = formSend.querySelector("input[name='carrera']")
+            if (inputHidden) {
+              inputHidden.remove();
+            }
+            document.getElementById("btnsenData").innerHTML = "Registrar";
                         }, 500);
                 } else {
                     alert(resData.msg);
@@ -81,6 +94,9 @@ function sendData() {
             });
     });
 }
+/**
+ * Esta funcion se carga de eliminar un reguistro
+ */
 function deleteData() {
     let dataBtnDelete = document.querySelectorAll(".btn-delete");
     dataBtnDelete.forEach(itemButton => {
@@ -113,6 +129,7 @@ function deleteData() {
                             alert(resData.msg);
                             setTimeout(() => {
                             deleteData();
+                            loadUpdate();
                             }, 500);
                         } else
                             alert(resData.msg);
@@ -124,3 +141,29 @@ function deleteData() {
         });
     });
 }
+function loadUpdate() {
+    const btnUpdate = document.querySelectorAll(".btn-update");
+    btnUpdate.forEach((element) => {
+      element.addEventListener("click", (e) => {
+        const id = element.getAttribute("data-id");
+        const nombre = element.getAttribute("data-nombre");
+        const descripcion = element.getAttribute("data-descripcion");
+        const estado = element.getAttribute("data-estado");
+        const idcarrera = element.getAttribute("data-idcarrera");
+        //*carga en los campos del formulari
+        document.getElementById("txtnombre").value = nombre;
+        document.getElementById("txtdescripcion").value = descripcion;
+        document.getElementById("sltestado").value = estado;
+        document.getElementById("sltcarrera").value = idcarrera;
+        document.getElementById("btnsendData").innerHTML = "Actualizar";
+        /**creamos el elemento de tipo hidden que ya a contener el id */
+        const inputHidden = document.estadocreateElement("input");
+        inputHidden.setAttribute("type", "hidden");
+        inputHidden.setAttribute("name", "modulo");
+        inputHidden.setAttribute("value", id);
+        /**agregamos el input al formulario */
+        document.getElementById("formSend").appendChild(inputHidden);
+        alert("Campos cargados");
+      });
+    });
+  }
