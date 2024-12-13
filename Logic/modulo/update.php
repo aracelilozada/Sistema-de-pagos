@@ -6,7 +6,7 @@ $arrayDatos = array(
     $carrera,
     $id
 );
-$sql = "UPDATE `modulo` SET `nombre`=?, `descripcion`=?, `estado`=?, `idcarrera`=? WHERE  `modulo`=?;";
+$sql = "UPDATE `modulo` SET `nombre`=?, `descripcion`=?, `estado`=?, `idcarrera`=? WHERE  `idmodulo`=?;";
 $response = update($conexion, $arrayDatos, $sql);
 if ($response) {
     echo json_encode([

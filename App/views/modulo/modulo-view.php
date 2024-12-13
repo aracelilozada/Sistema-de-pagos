@@ -79,7 +79,6 @@
                             <th>Nombre del Módulo</th>
                             <th>Descripción</th>
                             <th>Estado</th>
-                            <th>ID Carrera</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>

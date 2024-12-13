@@ -52,7 +52,7 @@
                     </div>
                     <div class="form-actions">
                         <button type="reset" class="btn btn-secondary">Limpiar</button>
-                        <button type="submit" class="btn btn-primary" id="btnsenData">Registrar</button>
+                        <button type="submit" class="btn btn-primary" id="btnsendData">Registrar</button>
                     </div>
                 </form>
             </div>
