@@ -19,6 +19,11 @@ if ($txtnombre== "" || $txtapellidos == "" || $txtDNI == "" || $txttelefono == "
     ]);
     die();
 }
+if(isset($_POST["persona"])){
+    $id=$_POST["persona"];
+    require_once "./update.php";
+    die();
+}
 //preparamos el array con los datos
 $arrData = array(
     $txtnombre,

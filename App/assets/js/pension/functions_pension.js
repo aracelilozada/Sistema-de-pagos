@@ -26,12 +26,12 @@ function loadTable() {
                 arrData.forEach((element) => {
                     row += ``;
                     row += `<tr>
-             <td>${element.idpension}</td>
+             <td>${element.contador}</td> 
              <td>${element.nombre}</td>
              <td>${element.precio}</td>
              <td>${element.porcentaje_descuento}</td>
              <td>${element.porcentaje_incremento}</td>
-             <td>${element.idmodulo}</td>
+          
              <td class="form-actions">
                <button class="btn-info btn-update"
                 data-id="${element.idpension}"
@@ -160,6 +160,11 @@ function deleteData() {
         inputHidden.setAttribute("value", id);
         /**agregamos el input al formulario */
         document.getElementById("formSend").appendChild(inputHidden);
+        loadTable();
+        setTimeout(() => {
+          deleteData();
+          loadUpdate();
+        }, 500);
         alert("Campos cargados");
       });
     });

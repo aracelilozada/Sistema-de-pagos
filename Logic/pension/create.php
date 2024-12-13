@@ -15,6 +15,11 @@ if ($name == "" || $precio == "" || $porcentajedescuento == "" || $porcentajeinc
     ]);
     die();
 }
+if(isset($_POST["pension"])){
+    $id=$_POST["pension"];
+    require_once "./update.php";
+    die();
+}
 //preparamos el array con los datos
 $arrData = array(
     $name,

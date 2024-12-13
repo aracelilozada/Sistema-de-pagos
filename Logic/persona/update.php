@@ -9,7 +9,7 @@ $arrayDatos = array(
     $txtfechan,
     $id
 );
-$sql = "UPDATE `persona` SET `nombres`=?, `apellidos`=?, `DNI`=?, `telefono`=? `correo_electronico`=? `direccion`=? `fecha_de_nacimiento`=? WHERE  `idpersona`=?;";
+$sql = "UPDATE `nombres` SET `apellidos`=?, `DNI`=?,`telefono`=?,`correo_electronico`=?,`direccion`=?,`fecha_de_nacimiento`=? WHERE  `idpersona`=?;";
 $response = update($conexion, $arrayDatos, $sql);
 if ($response) {
     echo json_encode([

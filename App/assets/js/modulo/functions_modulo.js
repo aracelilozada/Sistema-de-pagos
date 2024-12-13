@@ -22,20 +22,20 @@ function loadTable() {
                 const arrData = data.data;
                 let rows = "";
                 arrData.forEach((element) => {
-                    rows += `
-                        <tr>
-                            <td>${element.idmodulo}</td>
+                    rows += `<tr>
+                            <td>${element.contador}</td>
                             <td>${element.nombre}</td>
                             <td>${element.descripcion}</td>
                             <td>${element.estado}</td>
-                            <td>${element.idcarrera}</td>
+
+
                             <td class="form-actions">
                             <button class="btn-info btn-update"
-                            data-id="${element.idmodulo}"
-                            data-id="${element.nombre}"
-                            data-id="${element.descripcion}"
-                            data-id="${element.estado}"
-                            data-id="${element.idcarrera}"> Actualizar</button>
+                                        data-id="${element.idmodulo}"
+                                        data-nombre="${element.nombre}"
+                                        data-descripcion="${element.descripcion}"
+                                        data-estado="${element.estado}"
+                                        data-idcarrera="${element.idcarrera}"> Actualizar</button>
                             <button class="btn-danger btn-delete" data-id="${element.idmodulo}"> Eliminar</button>
                             </td>
                         </tr>`;
@@ -76,14 +76,14 @@ function sendData() {
                     dataFormSend.reset();
                     alert(resData.msg);
                     setTimeout(() => {
-                    deleteData();
-                    loadUpdate();
-                    let formSend = document.getElementById("formSend");
-                    let inputHidden = formSend.querySelector("input[name='carrera']")
+                        deleteData();
+                        loadUpdate();
+                        let formSend = document.getElementById("formSend");
+                        let inputHidden = formSend.querySelector("input[name='modulo']");
             if (inputHidden) {
-              inputHidden.remove();
+                inputHidden.remove();
             }
-            document.getElementById("btnsenData").innerHTML = "Registrar";
+            document.getElementById("btnsendData").innerHTML = "Registrar";
                         }, 500);
                 } else {
                     alert(resData.msg);
@@ -144,26 +144,31 @@ function deleteData() {
 function loadUpdate() {
     const btnUpdate = document.querySelectorAll(".btn-update");
     btnUpdate.forEach((element) => {
-      element.addEventListener("click", (e) => {
+        element.addEventListener("click", (e) => {
         const id = element.getAttribute("data-id");
         const nombre = element.getAttribute("data-nombre");
         const descripcion = element.getAttribute("data-descripcion");
         const estado = element.getAttribute("data-estado");
         const idcarrera = element.getAttribute("data-idcarrera");
-        //*carga en los campos del formulari
+        //*carga en los campos del formulari */
+        document.getElementById("sltcarrera").value = idcarrera;
         document.getElementById("txtnombre").value = nombre;
         document.getElementById("txtdescripcion").value = descripcion;
-        document.getElementById("sltestado").value = estado;
-        document.getElementById("sltcarrera").value = idcarrera;
+        document.getElementById("sltestado").value = estado;  
         document.getElementById("btnsendData").innerHTML = "Actualizar";
         /**creamos el elemento de tipo hidden que ya a contener el id */
-        const inputHidden = document.estadocreateElement("input");
+        const inputHidden = document.createElement("input");
         inputHidden.setAttribute("type", "hidden");
         inputHidden.setAttribute("name", "modulo");
         inputHidden.setAttribute("value", id);
         /**agregamos el input al formulario */
         document.getElementById("formSend").appendChild(inputHidden);
-        alert("Campos cargados");
-      });
+        loadTable();
+        setTimeout(() => {
+            deleteData();
+            loadUpdate();
+            }, 500);
+            alert("Campos cargados");
+        });
     });
-  }
+}

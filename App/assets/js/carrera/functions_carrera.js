@@ -22,8 +22,7 @@ function loadTable() {
         let row = "";
         arrData.forEach((element) => {
           row += `<tr>
-                      
-                      <td>${element.idcarrera}</td>
+                      <td>${element.contador}</td>
                       <td>${element.nombres}</td>
                       <td>${element.descripcion}</td>
                       <td>${element.estado}</td>
@@ -75,11 +74,13 @@ function sendData() {
             deleteData();
             loadUpdate();
             let formSend = document.getElementById("formSend");
-            let inputHidden = formSend.querySelector("input[name='carrera']")
+            let inputHidden = formSend.querySelector(
+              "input[name='carrera']"
+            );
             if (inputHidden) {
               inputHidden.remove();
             }
-            document.getElementById("btnsenData").innerHTML = "Registrar";
+            document.getElementById("btnsendData").innerHTML = "Registrar";
           }, 500);
         } else {
           alert(resData.msg);
@@ -151,12 +152,17 @@ function loadUpdate() {
       document.getElementById("sltestado").value = estado;
       document.getElementById("btnsendData").innerHTML = "Actualizar";
       /**creamos el elemento de tipo hidden que ya a contener el id */
-      const inputHidden = document.estadocreateElement("input");
+      const inputHidden = document.createElement("input");
       inputHidden.setAttribute("type", "hidden");
       inputHidden.setAttribute("name", "carrera");
       inputHidden.setAttribute("value", id);
       /**agregamos el input al formulario */
       document.getElementById("formSend").appendChild(inputHidden);
+      loadTable();
+      setTimeout(() => {
+        deleteData();
+        loadUpdate();
+      }, 500);
       alert("Campos cargados");
     });
   });

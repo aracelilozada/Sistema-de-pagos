@@ -88,7 +88,7 @@ function SendData() {
                         loadUpdate();
                         let formSend = document.getElementById("formSend");
                         let inputHidden = formSend.querySelector(
-                          "input[name='carrera']"
+                          "input[name='persona']"
                         );
                         if (inputHidden) {
                           inputHidden.remove();
@@ -177,11 +177,16 @@ function loadUpdate() {
         /**creamos el elemento de tipo hidden que ya a contener el id */
         const inputHidden = document.createElement("input");
         inputHidden.setAttribute("type", "hidden");
-        inputHidden.setAttribute("name", "btnsendData");
+        inputHidden.setAttribute("name", "persona");
         inputHidden.setAttribute("value", id);
         /**agregamos el input al formulario */
         document.getElementById("formSend").appendChild(inputHidden);
-        alert("Campos cargados");
+        loadTable();
+            setTimeout(() => {
+            daleteData();
+            loadUpdate();
+      }, 500);
+      alert("Campos cargados");
       });
     });
   }
