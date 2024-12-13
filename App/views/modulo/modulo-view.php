@@ -58,7 +58,7 @@
                     </div>
                     <div class="form-group">
                         <label for="sltestado">Estado</label>
-                        <select name="sltestado"> 
+                        <select name="sltestado" id="sltestado"> 
                             <option value="" disabled selected>selecciona un elemento</option>
                             <option value="activo" >activo</option>
                             <option value="inactivo" >inactivo</option>
