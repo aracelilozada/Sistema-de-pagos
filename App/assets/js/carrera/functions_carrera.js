@@ -149,7 +149,7 @@ function loadUpdate() {
       document.getElementById("txtnombre").value = nombres;
       document.getElementById("txtdescripcion").value = descripcion;
       document.getElementById("sltestado").value = estado;
-      document.getElementById("btnsendData").innerHTML = "Actualizar";
+      document.getElementById("btnsenData").innerHTML = "Actualizar";
       /**creamos el elemento de tipo hidden que ya a contener el id */
       const inputHidden = document.estadocreateElement("input");
       inputHidden.setAttribute("type", "hidden");
